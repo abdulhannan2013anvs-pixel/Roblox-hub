@@ -1,23 +1,88 @@
+-- Load Kavo UI Library
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("All in one hub script", "Ocean")
-local Tab = Window:NewTab("steal a brainrot")
-local Section = Tab:NewSection("scrips")
-Section:NewButton("kurd hub", "ButtonInfo", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dontasklol/Stealingurbrainrots/refs/heads/main/Kurd%20hub"))()
-    print("Clicked")
+
+-- Fetch the key from Pastebin (raw link!) and trim whitespace
+local CorrectKey = string.gsub(game:HttpGet("https://pastebin.com/raw/VRvES4rJ"), "%s+", "")
+
+-- Key Tab
+local KeyTab = Window:NewTab("Key System")
+local KeySection = KeyTab:NewSection("Enter Key")
+
+-- Label to show status
+local StatusLabel = KeySection:NewLabel("Status: Waiting...")
+
+-- Button to copy the key link
+KeySection:NewButton("Get Key (Pastebin)", "Copies the key link to clipboard", function()
+    if setclipboard then
+        setclipboard("https://pastebin.com/VRvES4rJ")
+        StatusLabel:UpdateLabel("Status: ✅ Link copied to clipboard!")
+    else
+        StatusLabel:UpdateLabel("Status: ⚠️ Clipboard not supported. Open manually.")
+    end
 end)
-Section:NewButton("hulk hub", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/panelhenil-oss/HULK/refs/heads/main/HULK.txt"))()
-  print("Clicked")
+
+-- Textbox for entering the key
+KeySection:NewTextBox("Enter Key", "Type the key here", function(input)
+    input = string.gsub(input, "%s+", "") -- trim user input too
+    if input == CorrectKey then
+        StatusLabel:UpdateLabel("Status: 🔓 Correct key entered!")
+        print("Correct key entered! Loading hub...")
+
+        -- === Tab 1: Steal a Brainrot ===
+        local Tab1 = Window:NewTab("Steal a Brainrot")
+        local Section1 = Tab1:NewSection("Scripts")
+
+        Section1:NewButton("Kurd Hub", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/dontasklol/Stealingurbrainrots/refs/heads/main/Kurd%20hub"))()
+            print("Kurd Hub Loaded")
+        end)
+
+        Section1:NewButton("Hulk Hub", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/panelhenil-oss/HULK/refs/heads/main/HULK.txt"))()
+            print("Hulk Hub Loaded")
+        end)
+
+        Section1:NewButton("Revul Hub Duel", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniPibble/Hamshesh-/refs/heads/main/StealABrainrotMenuV3"))()
+            print("Revul Hub Duel Loaded")
+        end)
+
+        Section1:NewButton("Chilli Hub", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://pastefy.app/3P0o3D66/raw", true))()
+            print("Chilli Hub Loaded")
+        end)
+
+        -- === Tab 2: Kick a Lucky Block ===
+        local Tab2 = Window:NewTab("Kick a Lucky Block")
+        local Section2 = Tab2:NewSection("Scripts")
+
+        Section2:NewButton("Kick a Lucky Block (Tora is me)", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/KickaLuckyBlock"))()
+            print("Kick a Lucky Block Loaded")
+        end)
+
+        Section2:NewButton("Big Foot", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hanniii1/Loader/refs/heads/main/BFLoader.lua"))()
+            print("Big Foot Loaded")
+        end)
+
+        Section2:NewButton("Fartez Hub", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/fartez127-design/FARTEZHUB/refs/heads/main/FARTEZHUBXKickaLuckyBlock"))()
+            print("Fartez Hub Loaded")
+        end)
+
+        Section2:NewButton("Stree Hub", "ButtonInfo", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/create-stree/STREE-HUB/refs/heads/main/Loader/Main.lua", true))()
+            print("Stree Hub Loaded")
+        end)
+
+        -- === End Hub Code ===
+
+    else
+        StatusLabel:UpdateLabel("Status: ❌ Wrong key! Try again.")
+        print("Wrong key! Try again.")
+    end
 end)
-Section:NewButton("revul hub duel", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniPibble/Hamshesh-/refs/heads/main/StealABrainrotMenuV3"))()
-    print("Clicked")
-end)
-local Tab = Window:NewTab("kick a lucky block")
-local Section = Tab:NewSection("Scripts")
-Section:NewButton("kick a luck block (tora is me)", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/KickaLuckyBlock"))()
-    print("Clicked")
-end)
+
 
