@@ -35,22 +35,22 @@ KeySection:NewTextBox("Enter Key", "Type the key here", function(input)
 
         Section1:NewButton("Kurd Hub", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/dontasklol/Stealingurbrainrots/refs/heads/main/Kurd%20hub"))()
-            print("Kurd Hub Loaded")
+            StatusLabel:UpdateLabel("✅ Kurd Hub Loaded")
         end)
 
         Section1:NewButton("Hulk Hub", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/panelhenil-oss/HULK/refs/heads/main/HULK.txt"))()
-            print("Hulk Hub Loaded")
+            StatusLabel:UpdateLabel("✅ Hulk Hub Loaded")
         end)
 
         Section1:NewButton("Revul Hub Duel", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/MiniPibble/Hamshesh-/refs/heads/main/StealABrainrotMenuV3"))()
-            print("Revul Hub Duel Loaded")
+            StatusLabel:UpdateLabel("✅ Revul Hub Duel Loaded")
         end)
 
         Section1:NewButton("Chilli Hub", "ButtonInfo", function()
             loadstring(game:HttpGet("https://pastefy.app/3P0o3D66/raw", true))()
-            print("Chilli Hub Loaded")
+            StatusLabel:UpdateLabel("✅ Chilli Hub Loaded")
         end)
 
         -- === Tab 2: Kick a Lucky Block ===
@@ -59,23 +59,37 @@ KeySection:NewTextBox("Enter Key", "Type the key here", function(input)
 
         Section2:NewButton("Kick a Lucky Block (Tora is me)", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/KickaLuckyBlock"))()
-            print("Kick a Lucky Block Loaded")
+            StatusLabel:UpdateLabel("✅ Kick a Lucky Block Loaded")
         end)
 
         Section2:NewButton("Big Foot", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/hanniii1/Loader/refs/heads/main/BFLoader.lua"))()
-            print("Big Foot Loaded")
+            StatusLabel:UpdateLabel("✅ Big Foot Loaded")
         end)
 
         Section2:NewButton("Fartez Hub", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/fartez127-design/FARTEZHUB/refs/heads/main/FARTEZHUBXKickaLuckyBlock"))()
-            print("Fartez Hub Loaded")
+            StatusLabel:UpdateLabel("✅ Fartez Hub Loaded")
         end)
 
         Section2:NewButton("Stree Hub", "ButtonInfo", function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/create-stree/STREE-HUB/refs/heads/main/Loader/Main.lua", true))()
-            print("Stree Hub Loaded")
+            StatusLabel:UpdateLabel("✅ Stree Hub Loaded")
         end)
+
+        -- === Tab 3: Racket Rivals ===
+        local RivalsTab = Window:NewTab("Racket Rivals")
+        local RivalsSection = RivalsTab:NewSection("Scripts")
+
+        RivalsSection:NewButton("Script RBX", "Loads Racket Rivals hub script", function()
+           loadstring(game:HttpGet('https://raw.githubusercontent.com/ScriptsRBXdotCom/scripts/refs/heads/main/racketrivals'))() 
+            StatusLabel:UpdateLabel("✅ Racket Rivals Hub Loaded")
+        end)
+
+        RivalsSection:NewButton("Legend Hub", "Example auto play script", function()
+            loadstring(game:HttpGet("https://pastefy.app/ULaWpxKm/raw"))()
+            StatusLabel:UpdateLabel("✅ Auto Play Loaded")
+                end)
 
         -- === End Hub Code ===
 
@@ -84,5 +98,3 @@ KeySection:NewTextBox("Enter Key", "Type the key here", function(input)
         print("Wrong key! Try again.")
     end
 end)
-
-
